@@ -1,0 +1,6 @@
+RewriteEngine on
+
+SSLRequireSSL
+
+RewriteCond $1 !^(index\.php|images|robots\.txt|([^\s]+(?=\.css))|([^\s]+(?=\.js)))
+RewriteRule ^(.*)$ /mhc/index.php/$1 [L]
