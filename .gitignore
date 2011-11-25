@@ -1,2 +1,2 @@
-/connector/.htaccess
-/connector/application/config/database.php
+/.htaccess
+/application/config/database.php
