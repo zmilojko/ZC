@@ -93,6 +93,12 @@ class Orders extends CI_Controller {
 
 	public function get()
 	{
+    if(!$this->session->userdata('user'))
+    {
+      die("Must login first");
+      return;
+    }  
+  
     $language_id = $this->session->userdata('language');
     if(!$language_id)
     {
@@ -151,6 +157,12 @@ class Orders extends CI_Controller {
   
   public function test()
   {
+    if(!$this->session->userdata('user'))
+    {
+      die("Must login first");
+      return;
+    }  
+  
     $this->load->helper('form');
     $this->load->view('order_test');
   }
