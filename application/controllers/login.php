@@ -25,6 +25,12 @@ class Login extends CI_Controller {
       echo "Error!";
     }    
   }
+  
+  public function test()
+  {
+    $this->load->helper('form');
+    $this->load->view('login_test');
+  }  
 }
 
 /* End of file welcome.php */
