@@ -10,6 +10,12 @@ class Status {
 class Statuses extends CI_Controller {
 	public function get()
 	{
+    if(!$this->session->userdata('user'))
+    {
+      die("Must login first");
+      return;
+    }
+  
     $language_id = $this->session->userdata('language');
   
     if(!$language_id)

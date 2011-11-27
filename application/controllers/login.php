@@ -8,8 +8,8 @@ class Login extends CI_Controller {
     
     if($username == 'michal' && $password == 'GayPigeon')
     {
-      echo "OK";  
-
+        
+      $this->session->set_userdata('user', 'OK');
       if(isset($_POST['language']))
       {
         $this->session->set_userdata('language', $_POST['language']);
@@ -18,12 +18,20 @@ class Login extends CI_Controller {
       {
         $this->session->set_userdata('language', DEFAULT_LANGUAGE_INDEX);
       }
+      echo "OK";      
     }
     else
     {
+      $this->session->unset_userdata('user', 'OK');
       echo "Error!";
     }    
   }
+  
+  public function test()
+  {
+    $this->load->helper('form');
+    $this->load->view('login_test');
+  }  
 }
 
 /* End of file welcome.php */
