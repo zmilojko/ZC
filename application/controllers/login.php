@@ -8,7 +8,7 @@ class Login extends CI_Controller {
     
     if($username == 'michal' && $password == 'GayPigeon')
     {
-      echo "OK";  
+        
       $this->session->set_userdata('user', 'OK');
       if(isset($_POST['language']))
       {
@@ -18,6 +18,7 @@ class Login extends CI_Controller {
       {
         $this->session->set_userdata('language', DEFAULT_LANGUAGE_INDEX);
       }
+      echo "OK";      
     }
     else
     {

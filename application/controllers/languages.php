@@ -10,11 +10,6 @@ class Lang {
 class Languages extends CI_Controller {
 	public function get()
 	{
-    if(!$this->session->userdata('user'))
-    {
-      die("Must login first");
-      return;
-    }  
     $query = $this->db->select('*')
                       ->from('languages')
                       ->get()->result();
