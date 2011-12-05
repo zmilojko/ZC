@@ -6,7 +6,7 @@ class Login extends CI_Controller {
     $username = isset($_POST['username'])?$_POST['username']:"";
     $password = isset($_POST['password'])?$_POST['password']:"";
     
-    if($username == 'michal' && $password == 'GayPigeon')
+    if($username == 'm' && $password == 'gp')
     {
         
       $this->session->set_userdata('user', 'OK');

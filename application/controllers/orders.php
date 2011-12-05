@@ -22,6 +22,7 @@ class Order {
      $this->order_creation_time = $db_order->date_purchased;
      $this->status = $db_order->orders_status;
 
+     $this->currency = $db_order->currency;
      $this->total = $db_order->order_total;
      $this->tax = $db_order->order_tax;
      
