@@ -1,5 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+//test comment
+
 class Order {
   function __construct($db_order) {
      $this->id = $db_order->orders_id;
