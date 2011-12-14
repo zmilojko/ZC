@@ -10,17 +10,8 @@ class Lang {
 class Languages extends CI_Controller {
 	public function get()
 	{
-    $query = $this->db->select('*')
-                      ->from('languages')
-                      ->get()->result();
-    $lang_array = array();     
-     
-    foreach($query as $row)
-    {
-      $lang_array[] = new Lang($row);
-    }
-                   
-    echo json_encode($lang_array);
+    $this->load->library('LanguagesHandler');
+    LanguagesHandler::GetAllLanguages();
   }
 }
 

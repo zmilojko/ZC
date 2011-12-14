@@ -19,7 +19,29 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+    $cmd = isset($_POST['command'])?$_POST['command']:FALSE;
+    
+    switch($cmd) {
+    case "get_languages":
+      $this->load->library('LanguagesHandler');
+      LanguagesHandler::GetAllLanguages();
+      return;    
+    case "login":
+      $this->load->library('LoginHandler');
+      LoginHandler::DoLogin();
+      return;
+    case "get_statuses":
+      $this->load->library('StatusesHandler');
+      StatusesHandler::GetAllStatuses();
+      return;
+    case "get_orders":
+      $this->load->library('OrderHandler');
+      OrderHandler::get_full_orders();
+      return;
+
+    default:
+    		$this->load->view('welcome_message');
+    }  
 	}
 }
 
