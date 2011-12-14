@@ -17,7 +17,7 @@ class LanguagesHandler {
        
       foreach($query as $row)
       {
-        $lang_array[] = new Lang($row);
+        $lang_array[] = new LanguagesHandler($row);
       }
                      
       echo json_encode($lang_array);      

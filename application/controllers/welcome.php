@@ -43,6 +43,11 @@ class Welcome extends CI_Controller {
     		$this->load->view('welcome_message');
     }  
 	}
+  public function test()
+  {
+    $this->load->helper('form');
+    $this->load->view('command_test');
+  }  
 }
 
 /* End of file welcome.php */
