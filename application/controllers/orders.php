@@ -21,6 +21,9 @@ class Order {
      $this->billing->method = $db_order->payment_method;
      
      $this->latest_update_time = $db_order->last_modified;
+     if($this->latest_update_time == null) {
+        $this->latest_update_time = $db_order->date_purchased;
+     }
      $this->order_creation_time = $db_order->date_purchased;
      $this->status = $db_order->orders_status;
 
