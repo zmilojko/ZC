@@ -9,6 +9,11 @@ class Login extends CI_Controller {
   
   public function test()
   {
+    if(!ENABLE_TEST_PAGES) {
+      header("HTTP/1.0 404 Not Found");
+      die('');
+    }
+  
     $this->load->helper('form');
     $this->load->view('login_test');
   }  

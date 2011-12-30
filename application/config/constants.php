@@ -1,5 +1,12 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+// ZC Constants
+define('WEBSHOP_TYPE', 'ZENCART');
+define('ENABLE_TEST_PAGES', 1);
+define('USERNAME', 'm'); //Leave empty to use username/password from the webshop admin
+define('PASSWORD', 'gp');
+define('PASSWORD_TYPE', 'CLEAR_TEXT'); //Possible values: 'MD5', 'ZENCART', 'CLEAR_TEXT'
+
 /*
 |--------------------------------------------------------------------------
 | File and Directory Modes

@@ -40,11 +40,19 @@ class Welcome extends CI_Controller {
       return;
 
     default:
+        if(!ENABLE_TEST_PAGES) {
+          header("HTTP/1.0 404 Not Found");
+          die('');
+        }    
     		$this->load->view('welcome_message');
     }  
 	}
   public function test()
   {
+    if(!ENABLE_TEST_PAGES) {
+      header("HTTP/1.0 404 Not Found");
+      die('');
+    }    
     $this->load->helper('form');
     $this->load->view('command_test');
   }  
