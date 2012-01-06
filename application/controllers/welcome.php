@@ -39,7 +39,7 @@
  * SOFTWARE.
  */
 
-class Welcome extends CI_Controller {
+class Welcome extends MY_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -62,20 +62,20 @@ class Welcome extends CI_Controller {
     
     switch($cmd) {
     case "get_languages":
-      $this->load->library('LanguagesHandler');
-      LanguagesHandler::GetAllLanguages();
+      $this->load_my_model('Language');
+      $this->Language->GetAllLanguages();
       return;    
     case "login":
       $this->load->library('LoginHandler');
       LoginHandler::DoLogin();
       return;
     case "get_statuses":
-      $this->load->library('StatusesHandler');
-      StatusesHandler::GetAllStatuses();
+      $this->load_my_model('Status');
+      $this->Status->GetAllStatuses();
       return;
     case "get_orders":
-      $this->load->library('OrderHandler');
-      OrderHandler::get_full_orders();
+      $this->load_my_model('Order');
+      $this->Order->get_full_orders();
       return;
 
     default:

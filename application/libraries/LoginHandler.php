@@ -85,7 +85,6 @@ class LoginHandler {
       } 
     } else {
       die('checking passwords from the database is not implemented yet');
-      $this->load->helper('zen_passwords');
       //Check against admin tables
     }
   }  

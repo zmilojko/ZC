@@ -37,28 +37,26 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-class LanguagesHandler {
-    function __construct($db_item = null) {
-       if(!$db_item) {
-        return;
-       }       
-       $this->language_id = $db_item->languages_id;
-       $this->language_name = $db_item->name;
-    }
-    public static function GetAllLanguages() {
-      $ci =& get_instance();
-      $query = $ci->db->select('*')
-                        ->from('languages')
-                        ->get()->result();
-      $lang_array = array();     
-       
-      foreach($query as $row)
-      {
-        $lang_array[] = new LanguagesHandler($row);
-      }
-                     
-      echo json_encode($lang_array);      
-    }
-}
 
-/* End of file Languages.php */
+
+class MY_Controller extends CI_Controller {
+
+	function __construct()
+	{
+		parent::__construct();
+		
+		
+	}
+
+    /**
+     * Implement model loading using the prefix, which will deterine which model to load. 
+     * Prefix is actually the name of the webshop.
+     * Model will be loaded from the 'prefix' subfolder of the model folder, and the 
+     * file actually loaded will be 'prefix_model.php'. However, class name should still be Model
+     * and the resulting member variable will be model.
+     */
+    function load_my_model($model_name) {
+        $this->load->model(strtolower(WEBSHOP_TYPE) . "/" . $model_name);
+    }
+    
+}

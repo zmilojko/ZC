@@ -37,7 +37,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-class Login extends CI_Controller {
+class Login extends MY_Controller {
 	public function index()
 	{
     $this->load->library('LoginHandler');

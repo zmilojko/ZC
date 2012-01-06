@@ -37,31 +37,30 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-class StatusesHandler {
-    function __construct($db_item = null) {
-       if(!$db_item) {
-        return;
-       }    
-       $this->status_id = $db_item->orders_status_id;
-       $this->status_name = $db_item->orders_status_name;
+
+class Status extends CI_Model {
+
+    function __construct()
+    {
+        // Call the Model constructor
+        parent::__construct();
     }
-    
-    public static function GetAllStatuses() {
-      $ci =& get_instance();
-      if(!$ci->session->userdata('user'))
+
+    public function GetAllStatuses() {
+      if(!$this->session->userdata('user'))
       {
         die("Must login first");
         return;
       }
     
-      $language_id = $ci->session->userdata('language');
+      $language_id = $this->session->userdata('language');
     
       if(!$language_id)
       {
         $language_id = DEFAULT_LANGUAGE_INDEX;
       }
     
-      $query = $ci->db->select('*')
+      $query = $this->db->select('*')
                                 ->from('orders_status')
                                 ->where('language_id',$language_id)
                                 ->get()->result();
@@ -69,10 +68,18 @@ class StatusesHandler {
        
       foreach($query as $row)
       {
-        $statuses[] = new StatusesHandler($row);
+        $statuses[] = self::CreateStatusObject($row);
       }
       echo json_encode($statuses);    
     }
+    
+    private static function CreateStatusObject($db_item = null) {
+       if(!$db_item) {
+        return;
+       }   
+       $obj = new stdClass();
+       $obj->status_id = $db_item->orders_status_id;
+       $obj->status_name = $db_item->orders_status_name;
+       return $obj;
+    }
 }
-
-/* End of file Statuses.php */

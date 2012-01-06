@@ -37,11 +37,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-class Statuses extends CI_Controller {
+class Statuses extends MY_Controller {
 	public function get()
 	{
-    $this->load->library('StatusesHandler');
-    StatusesHandler::GetAllStatuses();
+    $this->load_my_model('Status');
+    $this->Status->GetAllStatuses();
   }
 }
 

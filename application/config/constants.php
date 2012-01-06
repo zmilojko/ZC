@@ -5,7 +5,7 @@ define('WEBSHOP_TYPE', 'ZENCART');
 define('ENABLE_TEST_PAGES', 1);
 define('USERNAME', 'm'); //Leave empty to use username/password from the webshop admin
 define('PASSWORD', 'gp');
-define('PASSWORD_TYPE', 'CLEAR_TEXT'); //Possible values: 'MD5', 'ZENCART', 'CLEAR_TEXT'
+define('PASSWORD_TYPE', 'CLEAR_TEXT'); //Possible values: 'MD5', 'WEBSHOP', 'CLEAR_TEXT', but check if WEBSHOP is implemented for your system.
 
 /*
 |--------------------------------------------------------------------------

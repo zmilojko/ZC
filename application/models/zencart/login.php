@@ -1,4 +1,4 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
 /**
  * ZOM Connector
  *
@@ -37,20 +37,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-class Lang {
-    function __construct($db_item) {
-       $this->language_id = $db_item->languages_id;
-       $this->language_name = $db_item->name;
+
+class Login extends CI_Model {
+
+    function __construct()
+    {
+        // Call the Model constructor
+        parent::__construct();
     }
 }
 
-class Languages extends MY_Controller {
-	public function get()
-	{
-    $this->load_my_model('Language');
-    $this->Language->GetAllLanguages();
-  }
-}
 
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */

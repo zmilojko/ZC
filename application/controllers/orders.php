@@ -37,13 +37,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-class Orders extends CI_Controller {
+class Orders extends MY_Controller {
 
 
 	public function get()
 	{
-    $this->load->library('OrderHandler');
-    OrderHandler::get_full_orders();
+    $this->load_my_model('Order');
+    $this->Order->get_full_orders();
   }
   
   public function test()
